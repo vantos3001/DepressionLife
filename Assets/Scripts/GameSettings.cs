@@ -10,4 +10,5 @@ public class GameSettings : ScriptableObject
     public GameObject PlayerPrefab;
 
     public LayerMask GroundMask;
+    public LayerMask ObstacleMask;
 }
