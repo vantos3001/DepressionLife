@@ -23,11 +23,14 @@ public class GameEcsStartup : MonoBehaviour
     {
         _world = new EcsWorld();
         _sharedData = new SharedData(){EventsBus = new EventsBus()};
-        _updateSystems = new EcsSystems(_world);
+        _updateSystems = new EcsSystems(_world, _sharedData);
         
         _updateSystems
+            .Add(new PlayerInputSystem())
+                
 #if UNITY_EDITOR
             .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ())
+            .Add(new Leopotam.EcsLite.UnityEditor.EcsSystemsDebugSystem())
 #endif
             .Add(_sharedData.EventsBus.GetDestroyEventsSystem())
             .Inject (_sceneData)
