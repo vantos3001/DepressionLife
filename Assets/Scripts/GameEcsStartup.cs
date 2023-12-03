@@ -15,9 +15,6 @@ public class GameEcsStartup : MonoBehaviour
     public SharedData SharedData => _sharedData;
     
     private IEcsSystems _updateSystems;
-    
-    public static GameSettings Settings => Instance._settings;
-    public static GameEcsStartup Instance { get; private set; }
 
     private void Start()
     {
@@ -26,14 +23,18 @@ public class GameEcsStartup : MonoBehaviour
         _updateSystems = new EcsSystems(_world, _sharedData);
         
         _updateSystems
+            .Add(new CameraInitSystem())
+                
             .Add(new PlayerInputSystem())
                 
+            .Add(new MoveCameraByInputSystem())
+            
 #if UNITY_EDITOR
             .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ())
             .Add(new Leopotam.EcsLite.UnityEditor.EcsSystemsDebugSystem())
 #endif
             .Add(_sharedData.EventsBus.GetDestroyEventsSystem())
-            .Inject (_sceneData)
+            .Inject (_sceneData, _settings)
             .Init ();
     }
     

@@ -760,6 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e6fb8c923b41908f89f819fbfe91c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clampCameraCollider: {fileID: 563685236}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
