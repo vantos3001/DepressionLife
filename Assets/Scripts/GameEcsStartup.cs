@@ -24,6 +24,7 @@ public class GameEcsStartup : MonoBehaviour
         
         _updateSystems
             .Add(new CameraInitSystem())
+            .Add(new PlayerInitSystem())
                 
             .Add(new PlayerInputSystem())
                 

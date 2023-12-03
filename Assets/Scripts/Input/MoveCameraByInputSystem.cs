@@ -11,6 +11,11 @@ public class MoveCameraByInputSystem : IEcsRunSystem
     {
         var sharedData = systems.GetShared<SharedData>();
 
+        if (!sharedData.PlayerInputData.WasSwap)
+        {
+            return;
+        }
+        
         if (sharedData.PlayerInputData.CurrentTouchPosition == null)
         {
             return;
@@ -26,7 +31,7 @@ public class MoveCameraByInputSystem : IEcsRunSystem
 
         deltaPosition *= _settings.Value.MoveCameraMultiplier;
 
-        var newCameraPosition = sharedData.Camera.transform.position + new Vector3(0f, 0f, deltaPosition.x);
+        var newCameraPosition = sharedData.Camera.transform.position - new Vector3(0f, 0f, deltaPosition.x);
 
         newCameraPosition = _sceneData.Value.ClampCameraCollider.bounds.ClosestPoint(newCameraPosition);
 
