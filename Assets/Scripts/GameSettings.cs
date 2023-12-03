@@ -8,4 +8,6 @@ public class GameSettings : ScriptableObject
     public float SwapTolerance = 0.3f;
 
     public GameObject PlayerPrefab;
+
+    public LayerMask GroundMask;
 }

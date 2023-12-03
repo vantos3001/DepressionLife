@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveCameraMultiplier: 0.01
   MaxJustClickTime: 0.3
-  SwapTolerance: 0.3
+  SwapTolerance: 1
   PlayerPrefab: {fileID: 14135517631753742, guid: ddc0428607c22394086e6d549ce5e815, type: 3}
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 64

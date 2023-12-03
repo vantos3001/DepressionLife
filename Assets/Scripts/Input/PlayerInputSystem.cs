@@ -45,7 +45,7 @@ public class PlayerInputSystem : IEcsRunSystem
     private void UpdateIsJustClick(PlayerInputData data)
     {
         data.IsJustClick = _settings.Value.MaxJustClickTime >= data.PressedTime && !data.WasSwap &&
-                           data.PreviousTouchPosition != null;
+                           data.PreviousTouchPosition != null && data.CurrentTouchPosition == null;
     }
 
     private void UpdateWasSwap(PlayerInputData data)
