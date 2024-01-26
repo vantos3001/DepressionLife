@@ -29,6 +29,7 @@ public class GameEcsStartup : MonoBehaviour
             .Add(new PlayerInputSystem())
             
             .Add(new PlayerMoveSystem())
+            .Add(new PlayerAnimationSystem())
                 
             .Add(new MoveCameraByInputSystem())
             

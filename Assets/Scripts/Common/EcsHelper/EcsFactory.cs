@@ -10,6 +10,7 @@ public static class EcsFactory
         var monoEntity = gameObject.GetComponent<MonoEntity>();
         if (monoEntity == null)
         {
+            Debug.LogError("Not found MonoEntity. Name = " + gameObject.name);
             return;
         }
 
